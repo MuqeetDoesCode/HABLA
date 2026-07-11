@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model UserProfile {
+  id               String   @id @default(cuid())
+  currentCEFRLevel String   @default("A0")
+  currentLesson    Int      @default(1)
+  dailyStreak      Int      @default(0)
+  longestStreak    Int      @default(0)
+  lastStudyDate    DateTime?
+  totalStudyTime   Int      @default(0) // in minutes
+  wordsLearned     Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Lesson {
+  id          String   @id @default(cuid())
+  number      Int
+  cefrLevel   String
+  content     String   // JSON string containing the lesson plan
+  completed   Boolean  @default(false)
+  score       Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([number, cefrLevel])
+}
+
+model Vocabulary {
+  id             String   @id @default(cuid())
+  wordEs         String
+  wordEn         String
+  topic          String?
+  nextReviewDate DateTime @default(now())
+  interval       Int      @default(0)
+  easeFactor     Float    @default(2.5)
+  repetitions    Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([wordEs, wordEn])
+}
+
+model GrammarMastery {
+  id           String   @id @default(cuid())
+  concept      String   @unique
+  masteryLevel Int      @default(0) // 0-100
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model ConversationHistory {
+  id        String   @id @default(cuid())
+  date      DateTime @default(now())
+  messages  String   // JSON string of messages
+  topic     String?
+}
+
+model Assessment {
+  id        String   @id @default(cuid())
+  date      DateTime @default(now())
+  level     String
+  scores    String   // JSON string of scores
+  report    String
+}
