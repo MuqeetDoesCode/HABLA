@@ -26,7 +26,7 @@ export default function Vocabulary() {
     
     setGenerating(true);
     try {
-      await fetch("/api/vocabulary/generate", {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/vocabulary/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ topic })
