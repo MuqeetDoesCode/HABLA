@@ -3,7 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider  = "postgresql"
+  url       = env("postgresql://postgres.uktvialexspnqlrhzeta:[YOUR-PASSWORD]@aws-1-ap-south-1.pooler.supabase.com:6543/postgres?pgbouncer=true")
+  directUrl = env("postgresql://postgres.uktvialexspnqlrhzeta:[YOUR-PASSWORD]@aws-1-ap-south-1.pooler.supabase.com:5432/postgres")
 }
 
 model UserProfile {
