@@ -12,7 +12,7 @@ export default function Vocabulary() {
 
   const fetchVocab = async () => {
     try {
-      const res = await fetch("/api/vocabulary");
+     const res = await fetch(`${import.meta.env.VITE_API_URL}/api/vocabulary`);
       const data = await res.json();
       setVocab(data);
     } catch (e) {
