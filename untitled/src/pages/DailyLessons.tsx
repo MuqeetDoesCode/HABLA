@@ -15,7 +15,7 @@ export default function DailyLessons() {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch("/api/profile");
+     const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profile`);
       const data = await res.json();
       setProfile(data);
       checkLesson(data);
@@ -29,7 +29,7 @@ export default function DailyLessons() {
     try {
       // First try to generate/fetch
       setGenerating(true);
-      const res = await fetch("/api/lesson/generate", { method: "POST" });
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/lesson/generate`, { method: "POST" });
       const data = await res.json();
       if (data && data.content) {
         data.content = JSON.parse(data.content);
