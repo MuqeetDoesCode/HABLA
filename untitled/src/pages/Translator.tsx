@@ -12,7 +12,7 @@ export default function Translator() {
     if (!text.trim()) return;
     setLoading(true);
     try {
-      const res = await fetch("/api/translate", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/translate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text })
