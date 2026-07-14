@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ai-sdk/groq": "^4.0.10"
+  }
+}
