@@ -6,7 +6,7 @@ import { createServer as createViteServer } from "vite";
 import { generateText, streamText, generateObject } from "ai";
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { createOpenAI } from "@ai-sdk/openai";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import { createGroq } from "@ai-sdk/groq";
 import { z } from "zod";
 
 const prisma = new PrismaClient();
@@ -18,9 +18,9 @@ const getAIProvider = () => {
   if (process.env.OPENAI_API_KEY) {
     return createOpenAI({ apiKey: process.env.OPENAI_API_KEY })("gpt-4o");
   }
-  if (process.env.GEMINI_API_KEY) {
-    return createGoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY })("gemini-2.5-flash-lite");
-  }
+  if (process.env.GROQ_API_KEY) {
+  return createGroq({ apiKey: process.env.GROQ_API_KEY })("llama-3.3-70b-versatile");
+}
   throw new Error("No API keys configured for AI providers.");
 };
 
