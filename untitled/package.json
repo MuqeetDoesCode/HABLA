@@ -13,6 +13,7 @@
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.12",
     "@ai-sdk/google": "^4.0.12",
+    "@ai-sdk/groq": "^4.0.10",
     "@ai-sdk/openai": "^4.0.11",
     "@ai-sdk/react": "^4.0.23",
     "@google/genai": "^2.4.0",
