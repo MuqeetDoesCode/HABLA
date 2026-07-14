@@ -134,15 +134,18 @@ const PORT = process.env.PORT || 3000;
       const model = getAIProvider();
 
       const result = await streamText({
-        model,
-        messages: [
-          {
-            role: "system",
-            content: "You are a professional, highly encouraging Spanish tutor. You teach Spanish to English speakers. Have a conversation with the user in Spanish. If they make mistakes, gently correct them and provide the English translation for complex new words. Keep your responses conversational, concise, and focused on helping them improve their Spanish. Output responses primarily in Spanish with English translations where necessary.",
-          },
-          ...messages
-        ],
-      });
+  model,
+  system: `
+You are a professional Spanish tutor.
+You teach Spanish to English speakers.
+Have conversations in Spanish.
+Correct mistakes politely.
+Provide English translations for difficult words.
+Keep responses concise and conversational.
+Output mostly Spanish with occasional English explanations.
+`,
+  messages
+});
 
       result.pipeTextStreamToResponse(res);
     } catch (error) {
