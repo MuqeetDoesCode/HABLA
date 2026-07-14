@@ -12,13 +12,6 @@ import { z } from "zod";
 const prisma = new PrismaClient();
 
 const getAIProvider = () => {
-  if (process.env.CLAUDE_API_KEY) {
-    return createAnthropic({ apiKey: process.env.CLAUDE_API_KEY })("claude-3-5-sonnet-latest");
-  }
-  if (process.env.OPENAI_API_KEY) {
-    return createOpenAI({ apiKey: process.env.OPENAI_API_KEY })("gpt-4o");
-  }
-  const getAIProvider = () => {
   if (process.env.GROQ_API_KEY) {
     const groq = createGroq({
       apiKey: process.env.GROQ_API_KEY,
@@ -27,8 +20,6 @@ const getAIProvider = () => {
     return groq("openai/gpt-oss-120b");
   }
 
-  throw new Error("No API keys configured for AI providers.");
-};
   throw new Error("No API keys configured for AI providers.");
 };
 
