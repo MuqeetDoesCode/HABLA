@@ -18,9 +18,17 @@ const getAIProvider = () => {
   if (process.env.OPENAI_API_KEY) {
     return createOpenAI({ apiKey: process.env.OPENAI_API_KEY })("gpt-4o");
   }
+  const getAIProvider = () => {
   if (process.env.GROQ_API_KEY) {
-  return createGroq({ apiKey: process.env.GROQ_API_KEY })("llama-3.3-70b-versatile");
-}
+    const groq = createGroq({
+      apiKey: process.env.GROQ_API_KEY,
+    });
+
+    return groq("openai/gpt-oss-120b");
+  }
+
+  throw new Error("No API keys configured for AI providers.");
+};
   throw new Error("No API keys configured for AI providers.");
 };
 
