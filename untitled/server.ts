@@ -19,7 +19,7 @@ const getAIProvider = () => {
     return createOpenAI({ apiKey: process.env.OPENAI_API_KEY })("gpt-4o");
   }
   if (process.env.GEMINI_API_KEY) {
-    return createGoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY })("gemini-2.5-pro");
+    return createGoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY })("gemini-2.5-flash-lite");
   }
   throw new Error("No API keys configured for AI providers.");
 };
