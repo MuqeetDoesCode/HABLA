@@ -22,9 +22,6 @@ import Translator from "./pages/Translator";
 import Dashboard from "./pages/Dashboard";
 import SettingsPage from "./pages/Settings";
 
-<h1 className="fixed top-20 left-4 z-[9999] text-red-500 text-4xl">
-TEST
-</h1>
 
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
