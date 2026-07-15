@@ -39,8 +39,8 @@ console.log("Vocabulary response:", data);
 if (!res.ok) {
   throw new Error(data.error || "Unknown error");
 }
-      setTopic("");
-      fetchVocab();
+    setTopic("");
+setVocab(data);
     } catch (e: any) {
   console.error("Vocabulary error:", e);
   alert(e.message);
