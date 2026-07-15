@@ -111,7 +111,9 @@ if (!res.ok) {
                      <span className="text-[10px] font-black text-gray-400 uppercase tracking-wider">Mastery</span>
                    </div>
                    <div className="w-full h-2 bg-[#F0F0EE] rounded-full overflow-hidden">
-                      <div className="h-full bg-black" style={{ width: `${Math.min(100, v.repetitions * 20)}%` }} />
+                      <div className="h-full bg-black"style={{
+  width: `${Math.min(100, (v.repetitions || 0) * 20)}%`
+}}/>
                    </div>
                 </div>
               </div>
