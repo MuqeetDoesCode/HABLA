@@ -15,7 +15,7 @@ export default function App() {
     <Router>
       <div className="flex h-screen bg-[#FBFBF9] text-[#1A1A1A] font-sans">
         {/* Sidebar */}
-        <aside className="w-64 border-r border-[#E5E5E1] bg-white flex flex-col">
+<aside className="hidden md:flex md:w-64 border-r border-[#E5E5E1] bg-white flex-col">
           <div className="p-6 flex items-center gap-3 border-b border-[#E5E5E1]">
             <div className="bg-black p-2 rounded-xl">
               <GraduationCap className="w-6 h-6 text-white" />
