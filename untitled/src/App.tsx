@@ -1,5 +1,17 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import { BookOpen, MessageSquare, ListMusic, BrainCircuit, Languages, BarChart2, Settings, GraduationCap } from "lucide-react";
+import {
+  BookOpen,
+  MessageSquare,
+  ListMusic,
+  BrainCircuit,
+  Languages,
+  BarChart2,
+  Settings,
+  GraduationCap,
+  Menu,
+  X
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import DailyLessons from "./pages/DailyLessons";
