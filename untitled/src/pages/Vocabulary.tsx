@@ -97,8 +97,13 @@ if (!res.ok) {
                   </button>
                 </div>
                 <p className="text-[10px] font-black text-[#F97316] uppercase tracking-wider mb-2">{v.topic || 'General'}</p>
-                <h3 className="text-3xl font-black text-black">{v.wordEs}</h3>
-                <p className="text-gray-500 font-bold mt-1 text-lg">{v.wordEn}</p>
+                <h3 className="text-3xl font-black text-black">
+  {v.wordEs || v.es}
+</h3>
+
+<p className="text-gray-500 font-bold mt-1 text-lg">
+  {v.wordEn || v.en}
+</p>
               </div>
               <div className="mt-6 pt-4 border-t-2 border-[#E5E5E1] flex justify-between items-center">
                 <div className="flex flex-col w-full">
