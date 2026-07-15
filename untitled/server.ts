@@ -184,9 +184,12 @@ Output mostly Spanish with occasional English explanations.
 
       res.json(object.deck);
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "Failed to generate vocabulary" });
-    }
+  console.error("VOCAB ERROR:", error);
+
+  res.status(500).json({
+    error: error instanceof Error ? error.message : String(error)
+  });
+}
   });
 
   app.get("/api/vocabulary", async (req, res) => {
