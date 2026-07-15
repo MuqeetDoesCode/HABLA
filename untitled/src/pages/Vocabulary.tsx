@@ -26,16 +26,26 @@ export default function Vocabulary() {
     
     setGenerating(true);
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/api/vocabulary/generate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic })
-      });
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/vocabulary/generate`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ topic })
+});
+
+const data = await res.json();
+
+console.log("Vocabulary response:", data);
+
+if (!res.ok) {
+  throw new Error(data.error || "Unknown error");
+}
       setTopic("");
       fetchVocab();
-    } catch (e) {
-      console.error(e);
-    } finally {
+    } catch (e: any) {
+  console.error("Vocabulary error:", e);
+  alert(e.message);
+}
+    finally {
       setGenerating(false);
     }
   };
